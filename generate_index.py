@@ -23,6 +23,7 @@ social_links = sys.argv[12:]
 
 convert = Convertors()
 adder = Adder()
+print("GIT VALUE IS", git)
 start = git.rate_limiting[0]
 print(f'Request left at start of the script: {start}')
 
