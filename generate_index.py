@@ -8,7 +8,7 @@ import os
 import re
 
 git = Github(sys.argv[1])
-theme_selected = sys.argv[2]
+theme_selected = str(sys.argv[2])
 blogs = sys.argv[3].title()
 include_hackathon = sys.argv[4].title()
 stats_choice = sys.argv[5]
@@ -23,7 +23,8 @@ social_links = sys.argv[12:]
 convert = Convertors()
 adder = Adder()
 
-user_object = git.get_user()
+repo_current_object = git.get_repo(os.environ['GIT_REPOSITORY'])
+user_object = repo_current_object.get_owner()
 git_username = user_object.login
 user_data = {'username': git_username,
              'git_photo_url': user_object.avatar_url,
