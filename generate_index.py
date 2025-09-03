@@ -35,7 +35,7 @@ user_data = {'username': git_username,
              'name': user_object.name,
              'latest_updated': str(user_object.updated_at)}
 
-repo_list = [repo.name for repo in user_object.get_user().get_repos()]
+repo_list = [repo.name for repo in user_object.get_repos()]
 project_data = {}
 hackathon_data = {}
 
