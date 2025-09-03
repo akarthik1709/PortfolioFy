@@ -23,8 +23,8 @@ social_links = sys.argv[12:]
 convert = Convertors()
 adder = Adder()
 
-repo_current_object = git.get_repo(os.environ['GIT_REPOSITORY'])
-user_object = repo_current_object.get_owner()
+repo_current_object = git.get_repo(os.environ['GITHUB_REPOSITORY'])
+user_object = repo_current_object.owner
 git_username = user_object.login
 user_data = {'username': git_username,
              'git_photo_url': user_object.avatar_url,
