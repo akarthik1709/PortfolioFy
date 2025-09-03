@@ -5,6 +5,7 @@ inputs:
   gh_token:
     description: "Github Personal Access token"
     required: True
+    default: ${{ github.secrets.GITHUB_TOKEN }}
   theme:
     description: "Type of webpage you want to render"
     required: False

@@ -7,11 +7,10 @@ import sys
 import os
 import re
 
-
 git = Github(sys.argv[1])
 theme_selected = sys.argv[2]
-blogs = eval(sys.argv[3].title())
-include_hackathon = eval(sys.argv[4].title())
+blogs = sys.argv[3].title()
+include_hackathon = sys.argv[4].title()
 stats_choice = sys.argv[5]
 currentRepoName = sys.argv[6].split('/')[-1]
 currentRepoBranch = sys.argv[7].split('/')[-1]
@@ -23,9 +22,6 @@ social_links = sys.argv[12:]
 
 convert = Convertors()
 adder = Adder()
-print("GIT VALUE IS", git)
-start = git.rate_limiting[0]
-print(f'Request left at start of the script: {start}')
 
 user_object = git.get_user()
 git_username = user_object.login
@@ -87,9 +83,6 @@ else:
             continue
 
 
-end = git.rate_limiting[0]
-print(f'Request left at end of the script: {end}')
-print(f'Requests Consumed in this process: {start - end}')
 
 project_repos = convert.repoDataToHTML(
     project_data, git_username, projects_sort_by)
@@ -155,5 +148,5 @@ if 'index.html' in os.listdir(sys.argv[6]):
 else:
     print("Writing index.html for first time")
     indexRepo = git.get_repo(f"{git_username}/{currentRepoName}")
-    indexRepo.create_file('index.html', "Adding index file",
+    indexRepo.create_file('index2.html', "Adding index file",
                           newIndex, branch=currentRepoBranch)
